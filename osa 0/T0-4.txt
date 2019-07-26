@@ -1,0 +1,34 @@
+title Fullstack Example App - Muistiinpanon tallennus
+
+note over selain:
+Käyttäjä kirjoittaa muistiinpanon
+ja painaa Tallenna-nappia
+end note
+
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+palvelin->selain: HTTP-status 302 - URL redirection /notes
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+palvelin->selain: HTML-koodi
+
+note over selain:
+Sivun koodi sisältää CSS-tyylitiedoston
+main.css sekä skriptitiedoston main.js
+end note
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin->selain: main.css
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+palvelin->selain: main.js
+
+note over selain:
+Selain suorittaa js-koodin, joka
+pyytää JSON-datan palvelimelta
+end note
+
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin->selain: JSON-muotoinen data selaimelle
+
+note over selain:
+Selain renderöi muistiinpanot näytölle
+JSON-datasta taulukkomuotoon
+end note
