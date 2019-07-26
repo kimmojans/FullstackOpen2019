@@ -1,0 +1,26 @@
+title Fullstack Example App SPA - Muistiinpanon tallennus
+
+note over selain:
+Käyttäjä kirjoittaa muistiinpanon
+ja painaa Save-nappia
+end note
+
+note over selain:
+Tapahtumakäsittelijä estää lomakkeen
+lähetyksen ja sivun uudelleenlatauksen
+end note
+
+note over selain:
+Tapahtumakäsittelijä luo muistiinpanon,
+lisää sen muistiinpanojen listalle ja
+piirtää ruudun sisällön uudestaan
+end note
+
+note over selain:
+Tapahtumakäsittelijä lähettää muistiinpanon
+palvelimelle JSON-merkkijonona HTTP POST
+-pyynnön mukana (Request Payload)
+end note
+
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+palvelin->selain: HTTP-status "201 Created"
