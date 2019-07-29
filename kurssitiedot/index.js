@@ -30,16 +30,20 @@ const Header = (props) => {
 const Content = (props) => {
     return (
         <div>
-            <p>
-                {props.pt1} {props.exc1}
-            </p>
-            <p>
-                {props.pt2} {props.exc2}
-            </p>
-            <p>
-                {props.pt3} {props.exc3}
-            </p>
+            <Part part={props.pt1} exces={props.exc1} />
+            <Part part={props.pt2} exces={props.exc2} />
+            <Part part={props.pt3} exces={props.exc3} />
         </div>
+    )
+}
+
+const Part =(props) => {
+    return(
+    <div>
+        <p>
+            {props.part} {props.exces}
+        </p>
+    </div>
     )
 }
 
