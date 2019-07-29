@@ -22,6 +22,9 @@ const App =() => {
             <p>
                 {part3} {excercises3}
             </p>
+            <p>
+                Number of excercises {excercises1 + excercises2 + excercises3}
+            </p>
         </div>
     )
 }
