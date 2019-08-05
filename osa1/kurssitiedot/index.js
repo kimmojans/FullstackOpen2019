@@ -3,29 +3,32 @@ import ReactDOM from 'react-dom';
 
 
 const App =() => {
-    const course = 'Half stack application development'
-    
-    const parts = [
+/* Datan määrittely */
+    const course = {
+        name: 'Half stack application development',
+        parts : [
         {
-        name: 'Fundamentals of React',
-        excercises: 10
-    },
+            name: 'Fundamentals of React',
+            excercises: 10
+        },
     
-    {
-        name: 'Using props to pass data',
-        excercises: 7
-    },
-    {
-        name: 'State of component',
-        excercises: 14
-    }
-    ]
-    
+        {
+            name: 'Using props to pass data',
+            excercises: 7
+        },
+        {
+            name: 'State of component',
+            excercises: 14
+        }
+        ]
+    }    
+    /* Varmistetaan datan oikeellisuus console.logilla */
+    console.log(course.parts)
     return (
         <div>
-            <Header course={course} />
-            <Content parts={parts} />
-            <Total parts={parts} />
+            <Header course={course.name} />
+            <Content parts={course.parts} />
+            <Total parts={course.parts} />
         </div>
     )
 }
@@ -37,9 +40,8 @@ const Header = (props) => {
         </div>
     )
 }
-
+/* Content-osion tulostuksen muotoilu listaksi */
 const Content = (props) => {
-    
     return (
         <div>
         <ul>
@@ -50,7 +52,7 @@ const Content = (props) => {
         </div>
     )
 }
-
+/* Part-osion tulosten muotoilu kaksitasoiseksi listaksi */
 const Part =(props) => {
     return(
     <div>
@@ -64,7 +66,7 @@ const Total = (props) => {
     return (
         <div>
             <p>
-                Number of excercises {props.parts[0].excercises + props.parts[1].excercises + props.parts[2].excercises}
+                Total number of excercises {props.parts[0].excercises + props.parts[1].excercises + props.parts[2].excercises}
             </p>
         </div>
     )
