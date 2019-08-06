@@ -25,8 +25,8 @@ const App = (props) => {
         <div>
             <div>
                 {left}
-                <button onClick={handleLeftClick}>left</button>
-                <button onClick={handleRightClick}>right</button>
+                <Button handleClick={handleLeftClick} text='left' />
+                <Button handleClick={handleRightClick} text='left' />
                 {right}
                 <History allClicks={allClicks} />
             </div>
@@ -50,6 +50,12 @@ const History = (props) => {
         </div>
     )
 }
+
+const Button = ({handleClick, text}) => (
+    <button onClick={handleClick}>
+        {text}
+    </button>
+)
 
 
 ReactDOM.render(<App />, document.getElementById('root'))
