@@ -6,26 +6,35 @@ import ReactDOM from 'react-dom';
 const App = (props) => {
     const [ counter, setCounter ] = useState(0)
 
-    const setToValue = (value) => {
-        return () => {
-            setCounter(value)
-        }
-    }
+    const setToValue = (value) =>  setCounter(value)
 
-       
-    
+
     return (
         <div>
-        <div> {counter} </div>
-        <button onClick={setToValue(counter + 1)}>
-            Plus
-        </button>
-        <button onClick={setToValue(0)}>
-            Reset
-        </button>
+        <Display counter={counter} />
+        <Button
+            handleClick={() => setToValue(counter + 1)}
+            text='Plus'
+        />
+        <Button
+            handleClick={() => setToValue(counter - 1)}
+            text='Minus'
+        />
+        <Button
+            handleClick={() => setToValue(0)}
+            text='Reset'
+        />
         </div>
     )
 
 }
+
+const Display = ({ counter }) => <div> {counter} </div>
+
+const Button = ({ handleClick, text }) => (
+    <button onClick={handleClick}>
+        {text}
+    </button>
+)
 
 ReactDOM.render(<App />, document.getElementById('root'))
