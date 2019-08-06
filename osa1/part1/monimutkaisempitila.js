@@ -28,11 +28,27 @@ const App = (props) => {
                 <button onClick={handleLeftClick}>left</button>
                 <button onClick={handleRightClick}>right</button>
                 {right}
-                <p> {allClicks.join(' ')} </p>
+                <History allClicks={allClicks} />
             </div>
         </div>
     )
 
+}
+
+const History = (props) => {
+    if (props.allClicks.length === 0) {
+        return (
+            <div>
+                The app is used by pressing the buttons left and right
+            </div>
+        )
+    }
+
+    return (
+        <div>
+            Button press history: {props.allClicks.join(' ')}
+        </div>
+    )
 }
 
 
